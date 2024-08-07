@@ -22,7 +22,7 @@ const MainStyle: any = styled('div')(({ theme }) => ({
     },
 }));
 
-export default function PostLoginLayout() {
+export default function PreLoginLayout() {
     return (
         <RootStyle>
             <MainStyle>
