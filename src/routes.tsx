@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import HomeLayout from './layouts/Home';
+import HomeLayout from './layouts/Post-login';
 import HomePage from './pages/Home';
 
 interface RouteConfig {
