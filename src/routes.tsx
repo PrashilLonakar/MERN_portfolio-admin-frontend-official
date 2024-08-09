@@ -1,6 +1,8 @@
 import { Navigate } from 'react-router-dom';
-import HomeLayout from './layouts/Home';
-import HomePage from './pages/Home';
+import HomePage from './pages/home';
+import PostLoginLayout from './layouts/post-login';
+import PreLoginLayout from './layouts/pre-login';
+import AuthPage from './pages/auth';
 
 interface RouteConfig {
     path: string;
@@ -11,10 +13,22 @@ interface RouteConfig {
 
 const routes = (isLogged: boolean): RouteConfig[] => [
     {
-        path: '/',
-        element: <HomeLayout />,
+        path: '/home',
+        element: isLogged ? <PostLoginLayout /> : <Navigate to="/" />,
         title: 'Home',
-        children: [{ path: 'home', element: <HomePage />, title: 'main' }],
+        children: [
+            { path: '/home', element: <Navigate to="/home/dashboard" /> },
+            { path: 'dashboard', element: <HomePage />, title: 'Dashbboard' },
+        ],
+    },
+    {
+        path: '/',
+        element: <PreLoginLayout />,
+        title: 'pre-login',
+        children: [
+            { path: '/', element: <Navigate to="/login" /> },
+            { path: '/login', element: <AuthPage />, title: 'login' },
+        ],
     },
     { path: '*', element: <Navigate to="/404" replace /> },
 ];
