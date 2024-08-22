@@ -1,24 +1,27 @@
 import { styled } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 
-const RootStyle: any = styled('div')({
+// ----------------------------------------------------------------------
+
+const APP_BAR_MOBILE = 64;
+const APP_BAR_DESKTOP = 92;
+
+const RootStyle = styled('div')({
     display: 'flex',
-    flexFlow: 'column',
     minHeight: '100%',
     overflow: 'hidden',
 });
 
-const MainStyle: any = styled('div')(({ theme }) => ({
+const MainStyle = styled('div')(({ theme }) => ({
     flexGrow: 1,
-    overflow: 'hidden',
+    overflow: 'auto',
     minHeight: '100%',
-    paddingTop: 0,
-    paddingBottom: 0,
+    paddingTop: APP_BAR_MOBILE + 24,
+    paddingBottom: theme.spacing(10),
     [theme.breakpoints.up('lg')]: {
-        paddingTop: 0,
-        paddingBottom: 0,
-        paddingLeft: 0,
-        paddingRight: 0,
+        paddingTop: APP_BAR_DESKTOP + 24,
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
     },
 }));
 
