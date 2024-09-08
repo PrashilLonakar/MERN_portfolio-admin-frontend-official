@@ -1,36 +1,31 @@
 import React, { createContext, useContext, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
+import LoginPage from './login';
+import Grid from '@mui/material/Grid';
 
 export default function AuthPage() {
-    const RootStyle: any = styled('div')({
-        display: 'flex',
-        flexFlow: 'column',
-        minHeight: '100%',
-        overflow: 'hidden',
-    });
-
-    const MainStyle: any = styled('div')(({ theme }) => ({
-        flexGrow: 1,
-        overflow: 'hidden',
-        minHeight: '100%',
-        paddingTop: 0,
-        paddingBottom: 0,
-        [theme.breakpoints.up('lg')]: {
-            paddingTop: 0,
-            paddingBottom: 0,
-            paddingLeft: 0,
-            paddingRight: 0,
-        },
-    }));
-
     return (
         <>
-            <RootStyle>
-                <MainStyle>
-                    <Outlet />
-                </MainStyle>
-            </RootStyle>
+            <Grid
+                container
+                spacing={2}
+                sx={{ height: '100vh', width: '100%', position: 'relative' }}
+            >
+                <Grid item xs={12}>
+                    <img
+                        src="/static/illustrations/wallpaper1.jpg"
+                        style={{
+                            position: 'absolute',
+                            right: '0',
+                            top: '0',
+                            width: '100%',
+                            height: '100%',
+                        }}
+                        alt="auth-wallpaper"
+                    />
+                </Grid>
+            </Grid>
         </>
     );
 }

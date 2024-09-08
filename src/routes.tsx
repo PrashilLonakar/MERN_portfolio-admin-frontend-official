@@ -13,18 +13,18 @@ interface RouteConfig {
 
 const routes = (isLogged: boolean): RouteConfig[] => [
     {
-        path: '/',
-        element: isLogged ? <PostLoginLayout /> : <Navigate to="/" />,
+        path: '/dashboard',
+        element: isLogged ? <PostLoginLayout /> : <Navigate to="/auth" />,
         title: 'Home',
         children: [
-            { path: '/', element: <Navigate to="/dashboard" /> },
-            { path: 'dashboard', element: <HomePage />, title: 'Dashbboard' },
+            { path: '/dashboard', element: <Navigate to="/dashboard/home" /> }, // Relative path
+            { path: 'home', element: <HomePage />, title: 'Dashboard' },
         ],
     },
     {
         path: '/auth',
         element: <PreLoginLayout />,
-        title: 'pre-login',
+        title: 'Pre-login',
         children: [
             { path: '/auth', element: <Navigate to="/auth/login" /> },
             { path: '/login', element: <AuthPage />, title: 'login' },
