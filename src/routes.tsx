@@ -22,12 +22,12 @@ const routes = (isLogged: boolean): RouteConfig[] => [
         ],
     },
     {
-        path: '/',
+        path: '/auth',
         element: <PreLoginLayout />,
         title: 'Pre-login',
         children: [
-            { path: '/', element: <Navigate to="/login" /> }, // Relative path
-            { path: 'login', element: <AuthPage />, title: 'Login' },
+            { path: '/auth', element: <Navigate to="/auth/login" /> },
+            { path: '/login', element: <AuthPage />, title: 'login' },
         ],
     },
     { path: '*', element: <Navigate to="/404" replace /> },
