@@ -7,7 +7,7 @@ import ThemeProvider from './theme/theme';
 
 function App() {
     const isLogged: boolean = true;
-    const routing = useRoutes(routes(isLogged));
+    const routing = useRoutes(routes(true));
     return <ThemeProvider> {routing} </ThemeProvider>;
 }
 
